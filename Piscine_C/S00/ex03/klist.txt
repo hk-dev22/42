@@ -1,0 +1,5 @@
+Credentials cache: API:FB3979CA-8197-4970-BF64-643E887693AB
+        Principal: hkortbi@42.FR
+
+  Issued                Expires               Principal
+Oct 12 16:12:38 2020  Oct 19 16:12:38 2020  krbtgt/42.FR@42.FR
