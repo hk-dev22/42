@@ -48,7 +48,7 @@ Useful instructions for this project:
 ```
 - Enter to container
 ```
->docker exec it ‘nomconteneurouid’ bash
+> docker exec it ‘nomconteneurouid’ bash
 ```
 - check nginx error (inside container)
 ```
