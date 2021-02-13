@@ -2,7 +2,6 @@ FT_SERVER
 
 Serveur utilisant la techonologie Docker utilisant les services wordpress, phpmyadmin sous debian.
 
-Docker 
 Docker permet de créer des environnements (appelées containers) de manière à isoler des applications. Il repose sur le kernel Linux et sur une fonctionnalité : les containers, que vous connaissez peut-être déjà sous le doux nom de LXC. L'idée est de lancer du code dans un environnement isolé. (pour que chacun travaille dans le meme environnement ou pour connaitre exactement les dependencies utilises pour le projet)
 
 Docker et les containers Linux ne se comportent pas de la même manière qu'une VM. Une machine virtuelle isole tout un système (son OS), et dispose de ses propres ressources.
