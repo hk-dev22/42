@@ -1,6 +1,9 @@
 FROM debian:buster
 MAINTAINER Hicham Kortbi (hk.dev22@gmail.com)
 
+# Autoindex
+ENV AUTOINDEX on
+
 # Install packages 
 RUN apt-get update
 RUN apt-get install -y wget
@@ -15,7 +18,8 @@ ADD srcs/wp-config.php ./
 ADD srcs/install.sh ./
 
 # Config nginx
-RUN mv ./default etc/nginx/sites-enabled && chown -R www-data /var/www/* && chmod -R 755 /var/www/*
+RUN if [ "$AUTOINDEX" = "off"]; then mv ./default_off etc/nginx/sites-enabled; else mv ./default etc/nginx/sites-enabled; fi
+RUN chown -R www-data /var/www/* && chmod -R 755 /var/www/*
 
 # Wordpress - Download and install
 RUN mkdir -p /var/www/localhost/wordpress

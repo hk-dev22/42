@@ -53,7 +53,7 @@ server {
 	location /{
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		autoindex on;
+		autoindex off;
 		try_files $uri $uri/ /index.php?$args;
 	}
 
