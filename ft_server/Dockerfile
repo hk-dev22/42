@@ -2,7 +2,7 @@ FROM debian:buster
 MAINTAINER Hicham Kortbi (hk.dev22@gmail.com)
 
 # Autoindex
-ENV AUTOINDEX on
+ENV AUTOINDEX=on
 
 # Install packages 
 RUN apt-get update
@@ -17,10 +17,6 @@ ADD srcs/default ./
 ADD srcs/wp-config.php ./
 ADD srcs/install.sh ./
 
-# Config nginx
-RUN if [ "$AUTOINDEX" = "off"]; then mv ./default_off etc/nginx/sites-enabled; else mv ./default etc/nginx/sites-enabled; fi
-RUN chown -R www-data /var/www/* && chmod -R 755 /var/www/*
-
 # Wordpress - Download and install
 RUN mkdir -p /var/www/localhost/wordpress
 RUN wget https://wordpress.org/latest.tar.gz && tar -xzf latest.tar.gz && mv wordpress/* /var/www/localhost/wordpress/ && \
@@ -33,6 +29,4 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-lang
 
 CMD ["bash",  "./install.sh"]
 
-EXPOSE 80
-
-EXPOSE 443
+EXPOSE 80 443
