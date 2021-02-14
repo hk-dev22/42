@@ -1,0 +1,22 @@
+General instructions
+verifications
+- Verifiez que tous les fichiers de configurations du server sont bien dans le repertoire srcs.
+- Verifiez si le Dockerfile est bien à la racine du repertoire.
+- Lancer la commande "docker build ."
+
+Mandatory part
+Le projet à pour but de lancer un serveur web fonctionnel en utilisant Docker. Verifiez que tous les prochains points ont été respectés. A la premiere erreur, arretez vous de corriger et mettez 0. 
+Docker environment
+- Verifiez qu'il n'y a qu'un container Docker qui tourne en ce moment
+- Verifiez si le container à bien été construit à partir de Debian Buster.
+- Verifiez que vous pouvez run le container avec la command "docker run xxx" sans problems. (xxx etant le nom du docker que vous venez de construire)
+Instructions serveur
+- Verifiez si Nginx est bien utilisé (vous pouvez verifier le Dockerfile).
+- Verifiez que le serveur fait bien tourner plusieurs services (wordpress and phpmyadmin)
+- Verifiez que le serveur redirige vers la bon website en fonction de l'url
+- Verifiez si Nginx utilise bien le protocole SSL
+- Verifiez que le serveur tourne avec un index automatique qui doit pouvoir se désactiver au lancement du container (via une variable d'environnement par exemple).
+Run website, run !
+- Verifiez si le wordpress utilise bien la base MySQL. Vous pouvez vous loggez dessus et regarder la partie base de donnée.
+- Verifiez si le phpmyadmin utilise la base MySQL. Vous devriez voir les informations du wordpress.
+
