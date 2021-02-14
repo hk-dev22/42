@@ -17,6 +17,9 @@ ADD srcs/default ./
 ADD srcs/wp-config.php ./
 ADD srcs/install.sh ./
 
+# SSL: generate key and certificate
+RUN openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout nginx-selfsigned.key -out nginx-selfsigned.crt -subj "/C=FR/ST=Paris/L=Franconville/O=42/OU=hkortbi/CN=localhost"
+
 # Wordpress - Download and install
 RUN mkdir -p /var/www/localhost/wordpress
 RUN wget https://wordpress.org/latest.tar.gz && tar -xzf latest.tar.gz && mv wordpress/* /var/www/localhost/wordpress/ && \
