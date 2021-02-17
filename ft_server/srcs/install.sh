@@ -1,8 +1,8 @@
 # Config ssl
 mkdir /etc/nginx/ssl
 chmod 700 /etc/nginx/ssl
-#openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout /etc/nginx/ssl/nginx-selfsigned.key -out /etc/nginx/ssl/nginx-selfsigned.crt -subj "/C=FR/ST=Paris/L=Franconville/O=42/OU=hkortbi/CN=localhost"
-mv nginx-selfsigned.key /etc/nginx/ssl/ && mv  nginx-selfsigned.crt /etc/nginx/ssl/
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout /etc/nginx/ssl/nginx-selfsigned.key -out /etc/nginx/ssl/nginx-selfsigned.crt -subj "/C=FR/ST=Paris/L=Franconville/O=42/OU=hkortbi/CN=localhost"
+
 
 # Config nginx and autoindex
 if [ "$AUTOINDEX" = "off" ];

@@ -14,11 +14,10 @@ RUN apt-get install -y php7.3 php7.3-fpm php7.3-mysql php7.3-common php7.3-cli p
 
 # Add sources files
 ADD srcs/default ./
+ADD srcs/default_off ./
 ADD srcs/wp-config.php ./
 ADD srcs/install.sh ./
 
-# SSL: generate key and certificate
-RUN openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout nginx-selfsigned.key -out nginx-selfsigned.crt -subj "/C=FR/ST=Paris/L=Franconville/O=42/OU=hkortbi/CN=localhost"
 
 # Wordpress - Download and install
 RUN mkdir -p /var/www/localhost/wordpress
