@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:52:53 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 12:37:56 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/22 21:16:41 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ t_data *init_data()
     data->img_door = init_img();
     data->img_coin = init_img();
     data->img_player = init_img();
+    data->coin = 0;
+    data->exit = 0;
+    data->move = 0;
     if (!data || !data->img_space || !data->img_wall || !data->img_floor
         || !data->img_door || !data->img_player || !data->img_coin || !data->valid_map)
     {
-        ft_putstr_fd("Error, memory allocation!\n", 1);
+        ft_putstr_fd("Error: memory allocation!\n", 1);
         exit_all(data);
     }
     return (data);

@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 13:37:32 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 19:58:30 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/22 21:19:41 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int handle_keypress(int keysym, t_data *data)
 		move_player(data, 'W');
 	if (keysym == XK_s)
 		move_player(data, 'S');
+	if (data->exit == 1)
+		handle_close(data);
 	return (SUCCESS);
 }
 
@@ -36,15 +38,35 @@ int	render(t_data *data)
 	return (SUCCESS);
 }
 
+int	check_arg(char *file)
+{
+	int found;
+	char *search;
+
+	found = 1;
+	search = ft_strrchr(file, '.');
+	if (search)
+	{
+		found = ft_strncmp(search, ".ber", 4);
+		if (found == 0)
+			return (0);
+	}
+	else
+		ft_putstr_fd("Error: wrong file type!\n", 1);
+	return (-1);
+}
+
 int main(int ac, char ** av)
 {
 	t_data *data;
 
 	if (ac != 2)
 	{
-		ft_putstr_fd("Wrong number of arguments (2)!", 1);
+		ft_putstr_fd("Error: wrong number of arguments (2)!", 1);
 		return (-1);
 	}
+	if (check_arg(av[1]) == -1)
+		return (-1);
 	data = init_data();
 	if ((first_read(data, av[1]) != -1))
 	{
@@ -65,6 +87,4 @@ int main(int ac, char ** av)
 		exit_all(data);
 	return (0);
 }
-
-
 

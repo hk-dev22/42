@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 21:04:34 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 13:06:44 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/22 21:00:27 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef struct    s_data
     t_img   *img_door;
     char    **map2d;
 	t_vmap	*valid_map;
+	int 	coin;
+	int		exit;
+	int		move;
 
 }                 t_data;
 
