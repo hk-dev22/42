@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 21:04:34 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 21:00:27 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:47:33 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,19 @@ void	check_map(t_data *data);
 void	map_errors(int error);
 void	draw_map(t_data *data);
 void	draw_on_img(t_img *img, t_img *s_img, int startX, int startY);
-void	check_move(t_data *data, char awds, int posX, int posY);
 void	move_player(t_data *data, char awds);
 void    init_game(t_data *data);
 void    free_data(t_data *data);
 int    get_map2d(t_data *data, char *file);
-int    first_read(t_data *data, char *file);
+void    first_read(t_data *data, char *file);
 void 	exit_all(t_data *data);
 int		handle_close(t_data *data);
 t_data *init_data();
-int	handle_close(t_data *data);
+int		handle_close(t_data *data);
+void	check_move(t_data *data, char awds, int posY, int posX);
+void	move_up(t_data *data, int posY, int posX);
+void	move_right(t_data *data, int posY, int posX);
+void	move_left(t_data *data, int posY, int posX);
+void	move_down(t_data *data, int posY, int posX);
 
 #endif

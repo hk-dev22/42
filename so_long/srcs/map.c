@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:01 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 21:18:30 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:50:28 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	check_map(t_data *data)
 	// Map must have at least one exit, one collectible, and one starting position
 	if (data->valid_map->exit != 1 || data->valid_map->collectible == 0 || data->valid_map->starting_position != 1)
 		data->valid_map->error = -3;
-	map_errors(data->valid_map->error);
 }
 
 void	map_errors(int error)
@@ -75,19 +74,16 @@ void	map_errors(int error)
 	
 }
 
-int    get_map2d(t_data *data, char *file)
+void    gnl_map2d(t_data *data, int fd)
 {
-    int	fd;
-	char *line;
     int i;
     int j;
     int res;
+    char * line;
 
-    fd = open(file, O_RDONLY);
-    malloc_map(data);
-    i = 0;
     res = 1;
-	while (res > 0)
+    i = 0;
+    while (res > 0)
     {   
         j = 0;
         res = get_next_line(fd, &line);
@@ -104,7 +100,17 @@ int    get_map2d(t_data *data, char *file)
         line = NULL;
     }
     data->map2d[i] = NULL;
+}
+
+int    get_map2d(t_data *data, char *file)
+{
+    int	fd;
+
+    fd = open(file, O_RDONLY);
+    malloc_map(data);
+    gnl_map2d(data, fd);
     check_map(data);
+    map_errors(data->valid_map->error);
     if (!data->map2d)
         return (-1);
     close(fd);

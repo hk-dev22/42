@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:56:02 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 18:35:51 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:52:23 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void exit_all(t_data *data)
 {
 	if (data)
 		free_data(data);
-	exit(0);
+	exit(EXIT_FAILURE);
 }
 
 int	handle_close(t_data *data)

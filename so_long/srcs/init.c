@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:52:53 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 21:16:41 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:53:53 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void    init_game(t_data *data)
 
     load_image(data, data->img_floor, "./textures/floor.xpm");
     load_image(data, data->img_wall, "./textures/brick_black.xpm");
-    load_image(data, data->img_door, "./textures/castledoors.xpm");
+    load_image(data, data->img_door, "./textures/ladder.xpm");
     load_image(data, data->img_coin, "./textures/gold_coin.xpm");
     load_image(data, data->img_player, "./textures/knight.xpm");
 }

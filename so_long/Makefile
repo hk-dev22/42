@@ -6,7 +6,7 @@
 #    By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/10 05:59:10 by hkortbi           #+#    #+#              #
-#    Updated: 2021/09/22 19:21:33 by hkortbi          ###   ########.fr        #
+#    Updated: 2021/09/23 10:39:35 by hkortbi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC_FILES = main.c\
 			draw.c\
 			init.c\
 			free.c\
-			read.c
+			utils.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 

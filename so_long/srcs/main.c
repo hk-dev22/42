@@ -6,12 +6,11 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 13:37:32 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 21:19:41 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:52:53 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
-
 
 int handle_keypress(int keysym, t_data *data)
 {
@@ -68,12 +67,9 @@ int main(int ac, char ** av)
 	if (check_arg(av[1]) == -1)
 		return (-1);
 	data = init_data();
-	if ((first_read(data, av[1]) != -1))
+	first_read(data, av[1]);
+	if ((get_map2d(data, av[1])) == 0 && data->valid_map->error == 0)
 	{
-		if ((get_map2d(data, av[1])) != 0)
-			exit_all(data);
-		if (data->valid_map->error != 0)
-			exit_all(data);
 		init_game(data);
 
 		/* Setup hooks */ 

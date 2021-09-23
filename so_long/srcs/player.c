@@ -6,7 +6,7 @@
 /*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:45 by hkortbi           #+#    #+#             */
-/*   Updated: 2021/09/22 21:16:01 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:45:36 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,6 @@ void	move_down(t_data *data, int posY, int posX)
 		data->move++;
 		printf("Number of moves: %d\n", data->move);
 	}
-}
-
-void	check_move(t_data *data, char awds, int posY, int posX)
-{
-	if (awds == 'A')
-		move_left(data, posY, posX);
-	if (awds == 'S')
-		move_down(data, posY, posX);
-	if (awds == 'D')
-		move_right(data, posY, posX);
-	if (awds == 'W')
-		move_up(data, posY, posX);
 }
 
 void	move_player(t_data *data, char awds)
