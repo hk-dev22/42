@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkortbi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 21:16:36 by hkortbi           #+#    #+#             */
-/*   Updated: 2020/11/28 13:05:27 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:51:58 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t size_src;
+	size_t	i;
+	size_t	size_src;
 
 	if (!dst && !src)
 		return (0);

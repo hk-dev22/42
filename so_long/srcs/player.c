@@ -12,7 +12,6 @@
 
 #include "../headers/so_long.h"
 
-
 void	move_up(t_data *data, int posY, int posX)
 {
 	posY--;
@@ -20,7 +19,7 @@ void	move_up(t_data *data, int posY, int posX)
 	{
 		if (data->map2d[posY][posX] == 'C')
 			data->coin++;
-		if (data->map2d[posY][posX] == 'E' && data->coin == data->valid_map->collectible)
+		if (data->map2d[posY][posX] == 'E' && data->coin == data->v_map->coin)
 			data->exit = 1;
 		else if (data->map2d[posY][posX] == 'E')
 			return ;
@@ -34,11 +33,11 @@ void	move_up(t_data *data, int posY, int posX)
 void	move_right(t_data *data, int posY, int posX)
 {
 	posX++;
-	if (posX < data->valid_map->columns && data->map2d[posY][posX] != '1')
+	if (posX < data->v_map->columns && data->map2d[posY][posX] != '1')
 	{
 		if (data->map2d[posY][posX] == 'C')
 			data->coin++;
-		if (data->map2d[posY][posX] == 'E' && data->coin == data->valid_map->collectible)
+		if (data->map2d[posY][posX] == 'E' && data->coin == data->v_map->coin)
 			data->exit = 1;
 		else if (data->map2d[posY][posX] == 'E')
 			return ;
@@ -56,7 +55,7 @@ void	move_left(t_data *data, int posY, int posX)
 	{
 		if (data->map2d[posY][posX] == 'C')
 			data->coin++;
-		if (data->map2d[posY][posX] == 'E' && data->coin == data->valid_map->collectible)
+		if (data->map2d[posY][posX] == 'E' && data->coin == data->v_map->coin)
 			data->exit = 1;
 		else if (data->map2d[posY][posX] == 'E')
 			return ;
@@ -70,11 +69,11 @@ void	move_left(t_data *data, int posY, int posX)
 void	move_down(t_data *data, int posY, int posX)
 {
 	posY++;
-	if (posY < data->valid_map->rows && data->map2d[posY][posX] != '1')
+	if (posY < data->v_map->rows && data->map2d[posY][posX] != '1')
 	{
 		if (data->map2d[posY][posX] == 'C')
 			data->coin++;
-		if (data->map2d[posY][posX] == 'E' && data->coin == data->valid_map->collectible)
+		if (data->map2d[posY][posX] == 'E' && data->coin == data->v_map->coin)
 			data->exit = 1;
 		else if (data->map2d[posY][posX] == 'E')
 			return ;
@@ -87,16 +86,16 @@ void	move_down(t_data *data, int posY, int posX)
 
 void	move_player(t_data *data, char awds)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	found;
 
 	found = 0;
 	i = 0;
-	while (i < data->valid_map->rows && found == 0)
+	while (i < data->v_map->rows && found == 0)
 	{
 		j = 0;
-		while (j < data->valid_map->columns && found == 0)
+		while (j < data->v_map->columns && found == 0)
 		{
 			if (data->map2d[i][j] == 'P')
 			{

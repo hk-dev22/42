@@ -12,56 +12,53 @@
 
 #include "../headers/so_long.h"
 
-void    free_map2d(char **map2d)
+void	free_map2d(char **map2d)
 {
-    int i;
+	int	i;
 
 	i = 0;
 	while (map2d[i])
 	{
-        if (map2d[i])
-            free(map2d[i]);
-        i++;
-    }
-    if (map2d)
-	    free(map2d);
+		if (map2d[i])
+			free(map2d[i]);
+		i++;
+	}
+	if (map2d)
+		free(map2d);
 }
 
-
-void    free_data(t_data *data)
+void	free_data(t_data *data)
 {
-    if (data->mlx_ptr)
-        free(data->mlx_ptr);
-    // if (data->mlx_win)
-    //     free(data->mlx_win);
-    if (data->valid_map)
-        free(data->valid_map);
-    if (data->map2d)
-        free_map2d(data->map2d);
-    if (data->img_coin)
-        free(data->img_coin);
-    if (data->img_door)
-        free(data->img_door);
-    if (data->img_floor)
-        free(data->img_floor);
-    if (data->img_player)
-        free(data->img_player);
-    if (data->img_space)
-        free(data->img_space);
-    if (data->img_wall)
-        free(data->img_wall);
-    if (data)
-        free(data);
+	if (data->mlx_ptr)
+		free(data->mlx_ptr);
+	if (data->v_map)
+		free(data->v_map);
+	if (data->map2d)
+		free_map2d(data->map2d);
+	if (data->img_coin)
+		free(data->img_coin);
+	if (data->img_door)
+		free(data->img_door);
+	if (data->img_floor)
+		free(data->img_floor);
+	if (data->img_player)
+		free(data->img_player);
+	if (data->img)
+		free(data->img);
+	if (data->img_wall)
+		free(data->img_wall);
+	if (data)
+		free(data);
 }
 
-void exit_all(t_data *data)
+void	exit_all(t_data *data)
 {
 	if (data)
 		free_data(data);
 	exit(EXIT_FAILURE);
 }
 
-int	handle_close(t_data *data)
+int	closer(t_data *data)
 {
 	if (data->img_floor->mlx_img)
 		mlx_destroy_image(data->mlx_ptr, data->img_floor->mlx_img);
@@ -73,8 +70,8 @@ int	handle_close(t_data *data)
 		mlx_destroy_image(data->mlx_ptr, data->img_door->mlx_img);
 	if (data->img_coin->mlx_img)
 		mlx_destroy_image(data->mlx_ptr, data->img_coin->mlx_img);
-	if (data->img_space->mlx_img)
-		mlx_destroy_image(data->mlx_ptr, data->img_space->mlx_img);
+	if (data->img->mlx_img)
+		mlx_destroy_image(data->mlx_ptr, data->img->mlx_img);
 	if (data->mlx_win)
 		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
 	if (data->mlx_ptr)

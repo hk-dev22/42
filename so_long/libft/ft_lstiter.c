@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkortbi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 18:44:35 by hkortbi           #+#    #+#             */
-/*   Updated: 2020/11/22 18:44:37 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:44:55 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *node;
+	t_list	*node;
 
 	if (!lst || !f)
 		return ;

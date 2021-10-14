@@ -12,28 +12,26 @@
 
 #include "../headers/so_long.h"
 
-
-// First read of the file, check if the file is opening
-void    first_read(t_data *data, char *file)
+void	first_read(t_data *data, char *file)
 {
-    int fd;
-    int gnl;
-    char *line;
+	int		fd;
+	int		gnl;
+	char	*line;
 
-    fd = open(file, O_RDONLY);
-    if (fd == -1)
-        ft_putstr_fd("Error, opening map file", 1);
-    gnl = 1;
-    while (gnl)
-    {
-        gnl = get_next_line(fd, &line);
-        if (data->valid_map->columns == 0)
-            data->valid_map->columns = ft_strlen(line);
-        if (line[0])
-            data->valid_map->rows++;
-        free(line);
-    }
-    close(fd);
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		ft_putstr_fd("Error, opening map file", 1);
+	gnl = 1;
+	while (gnl)
+	{
+		gnl = get_next_line(fd, &line);
+		if (data->v_map->columns == 0)
+			data->v_map->columns = ft_strlen(line);
+		if (line[0])
+			data->v_map->rows++;
+		free(line);
+	}
+	close(fd);
 }
 
 void	check_move(t_data *data, char awds, int posY, int posX)

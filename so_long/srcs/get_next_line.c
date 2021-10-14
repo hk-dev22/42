@@ -22,7 +22,8 @@ static char	*get_line(char *str)
 	j = 0;
 	while (str[i] != '\n' && str[i] != '\0')
 		i++;
-	if (!(line = (char *)malloc(sizeof(char) * (i + 1))))
+	line = (char *)malloc(sizeof(char) * (i + 1));
+	if (!line)
 		return (NULL);
 	while (i--)
 	{
@@ -50,7 +51,8 @@ static char	*get_remainder(char *str)
 	}
 	while (str[i + j] != '\0')
 		j++;
-	if (!(remainder = (char *)malloc(sizeof(char) * (j + 1))))
+	remainder = (char *)malloc(sizeof(char) * (j + 1));
+	if (!remainder)
 		return (NULL);
 	j = -1;
 	while (str[i + ++j] != '\0')
@@ -77,7 +79,8 @@ char	*ft_strjoin_gnl(char *s1, char *s2, int bytes_read)
 	i_d = 0;
 	i_s = 0;
 	size_s1 = ft_strlen(s1);
-	if (!(join = malloc(sizeof(char) * (size_s1 + bytes_read + 1))))
+	join = malloc(sizeof(char) * (size_s1 + bytes_read + 1));
+	if (!join)
 		return (NULL);
 	while (0 < size_s1--)
 		join[i_d++] = s1[i_s++];
@@ -89,7 +92,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2, int bytes_read)
 	return (join);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*str;
 	char		*buffer;
@@ -97,13 +100,17 @@ int			get_next_line(int fd, char **line)
 
 	if (!line || fd < 0 || fd > 4864 || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
 		return (-1);
 	if (!str)
 		str = ft_strdup("");
 	r = 1;
-	while (!ft_strchr(str, '\n') && (r = read(fd, buffer, BUFFER_SIZE)) > 0)
+	while (!ft_strchr(str, '\n') && r > 0)
+	{
+		r = read(fd, buffer, BUFFER_SIZE);
 		str = ft_strjoin_gnl(str, buffer, r);
+	}
 	if (r == -1)
 		return (free_buffer(buffer, -1));
 	free(buffer);

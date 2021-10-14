@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C $(MLX_DIR)
 	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_LIB) -L $(MLX_DIR) -L/usr/lib -lmlx -lm -lz  -lX11 -lXext
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_LIB) -L $(MLX_DIR) -L/usr/lib -lmlx -lm -lX11 -lXext
 	@echo [$(NAME)] : created!
 
 clean:

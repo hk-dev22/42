@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkortbi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkortbi <hkortbi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 21:23:42 by hkortbi           #+#    #+#             */
-/*   Updated: 2020/11/20 21:23:51 by hkortbi          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:43:51 by hkortbi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_size_decimal(int n)
+static int	ft_size_decimal(int n)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (n / 10 != 0)
@@ -25,9 +25,9 @@ static int			ft_size_decimal(int n)
 	return (i);
 }
 
-static long int		ft_abs(int number)
+static long int	ft_abs(int number)
 {
-	long int nb;
+	long int	nb;
 
 	nb = number;
 	if (number < 0)
@@ -35,7 +35,15 @@ static long int		ft_abs(int number)
 	return (nb);
 }
 
-char				*ft_itoa(int n)
+int	ft_negative(int nbr)
+{
+	if (nbr < 0)
+		return (1);
+	else
+		return (0);
+}
+
+char	*ft_itoa(int n)
 {
 	char		*itoa;
 	int			i;
@@ -43,7 +51,7 @@ char				*ft_itoa(int n)
 	long int	nb;
 	int			minus;
 
-	minus = (n < 0) ? 1 : 0;
+	minus = ft_negative(n);
 	nb = ft_abs(n);
 	size_decimal = ft_size_decimal(n);
 	itoa = (char *)malloc(sizeof(*itoa) * size_decimal + 1 + minus);
